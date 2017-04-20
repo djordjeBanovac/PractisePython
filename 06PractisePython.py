@@ -2,6 +2,14 @@
 (A palindrome is a string that reads the same forwards and backwards.)"""
 
 
-sequence=input("Enter string:")
+def isPalindrome(seq:str)->str:
+    """function checks if the string seq is palindrome or not"""
+    if seq==seq[::-1]:
+        result = seq + " is palindrome"
+    else:
+        result = seq + " isn't palindrome"
+    return result
 
-print(sequence[:-1])
+print(isPalindrome(input("Enter string to check whether the string is palindrome or not:")))
+
+
