@@ -35,7 +35,7 @@ def is_int(seq:str) ->bool:
 
 
 def correct_input(seq:str)->str:
-    """promts user for correct input."""
+    """promts user for correct input. it is allowed not to eneter enything."""
     while True:
         user_input = input(seq)
         if is_int(user_input) or user_input=="":
@@ -47,7 +47,7 @@ def correct_input(seq:str)->str:
 
 def password_generator(choice:int, size=10) ->str:
     """function generates passwords. It can generate password from three lists and every list 
-    is being used for one of the options. """
+    is being used for one of the options. It uses SystemRandom beacuse it is safer method."""
     osrand = SystemRandom()
     password = ''
     if choice == 1:
@@ -65,6 +65,8 @@ def password_generator(choice:int, size=10) ->str:
 
 
 def app() ->None:
+    """Function is used to run the password generator. It has three options with 
+    a default value set. if input is empty, it will exit."""
     while True:
         user_in = int(correct_input(string_menu) or '4')
         if user_in == 1:
