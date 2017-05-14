@@ -10,7 +10,7 @@ the scene category. To do this, you’re going to have to remember a bit about
 string parsing in Python 3. I talked a little bit about it in this post."""
 
 
-def list_from_file(file_name:str) ->list:
+def list_from_file(file_name : str) ->list:
     """Creates list from file with file.readlines(). In every element of the 
      list first two letters are removed. Actual image name starts after 
     the last '/' and in some cases there is a subcategory. Because of 
@@ -21,13 +21,14 @@ def list_from_file(file_name:str) ->list:
             return [item[3:].rsplit('/',1) for item in file.readlines()]
     except IOError as err:
         print("error reading file: "+str(err))
-        return (None)
+        return None
 
-def create_dict(alist:list) ->dict:
+
+def create_dict(alist : list) ->dict:
     """Function creates dictionary from list. it takes first element 
     of the sublist as key and on every occurrence of first element of the
     sublist value is increased."""
-    category ={}
+    category = {}
     for item in alist:
         if item[0] in category:
             category[item[0]] += 1
@@ -36,5 +37,5 @@ def create_dict(alist:list) ->dict:
     return category
 
 if __name__ == '__main__':
-    for key,value in create_dict(list_from_file("Training_01.txt")).items():
-        print(key,":",value)
+    for key ,value in create_dict(list_from_file("Training_01.txt")).items():
+        print(key , ":" , value)
