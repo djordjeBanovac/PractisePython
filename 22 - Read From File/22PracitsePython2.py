@@ -37,5 +37,5 @@ def create_dict(alist: list) ->dict:
     return category
 
 if __name__ == '__main__':
-    for key, value in create_dict(list_from_file("Training_01.txt")).items():
+    for key, value in sorted(create_dict(list_from_file("Training_01.txt")).items()):
         print(key, ":", value)
